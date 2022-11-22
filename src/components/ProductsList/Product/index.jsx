@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./style.module.css";
 
 export const Product = ({
   image,
@@ -9,7 +10,7 @@ export const Product = ({
   product,
 }) => {
   return (
-    <li>
+    <li className={styles.card}>
       <figure>
         <img src={image} alt={name} />
       </figure>
@@ -22,7 +23,7 @@ export const Product = ({
             currency: "BRL",
           }).format(price)}
         </span>
-        <button onClick={() => handleAddToCart(product)}>Adicionar</button>
+        <button className="btn btn-medium bg-color-primary text-bold color-gray-0" onClick={() => handleAddToCart(product)}>Adicionar</button>
       </div>
     </li>
   );

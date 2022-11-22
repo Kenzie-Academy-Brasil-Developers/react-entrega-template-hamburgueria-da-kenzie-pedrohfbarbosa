@@ -1,0 +1,12 @@
+.app > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 56.25rem) {
+  .app > div {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}

@@ -1,16 +1,18 @@
-import axios from "axios";
 import React from "react";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components/Header";
 import { ProductsList } from "./components/ProductsList";
 import { Cart } from "./components/Cart";
+import styles from "./styles/style.module.css"
 
 export const App = () => {
   const [products, setProducts] = useState([]);
   const [filteredWord, setFilteredWord] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState(null);
   const [currentSale, setCurrentSale] = useState([]);
-  const [showToast, setShowToast] = useState(false);
 
   const instance = axios.create({
     baseURL: "https://hamburgueria-kenzie-json-serve.herokuapp.com",
@@ -32,9 +34,30 @@ export const App = () => {
   const handleAddToCart = (product) => {
     const testProduct = currentSale.find((e) => e.id === product.id);
 
-    !testProduct
-      ? setCurrentSale(currentSale.concat([product]))
-      : setShowToast(true);
+    if (!testProduct) {
+      setCurrentSale(currentSale.concat([product]));
+      toast.success("Item adicionado ao carrinho com sucesso", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else {
+      toast.error("Item já está no carrinho", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
 
   const handleRemoveFromCart = (id) => {
@@ -58,22 +81,25 @@ export const App = () => {
   };
 
   return (
-    <div>
+    <div className={styles.app}>
       <Header
         handleSearch={handleSearch}
         resetToAllProducts={resetToAllProducts}
       />
-      <ProductsList
-        filteredWord={filteredWord}
-        products={products}
-        filteredProducts={filteredProducts}
-        handleAddToCart={handleAddToCart}
-      />
-      <Cart
-        currentSale={currentSale}
-        cartTotal={totalPrice}
-        handleRemoveFromCart={handleRemoveFromCart}
-      />
+      <div className="container">
+        <ProductsList
+          filteredWord={filteredWord}
+          products={products}
+          filteredProducts={filteredProducts}
+          handleAddToCart={handleAddToCart}
+        />
+        <Cart
+          currentSale={currentSale}
+          cartTotal={totalPrice}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />
+      </div>
+      <ToastContainer />
     </div>
   );
 };
