@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { instance } from "./services/api/api";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,16 +14,26 @@ export const App = () => {
   const [filteredProducts, setFilteredProducts] = useState(null);
   const [currentSale, setCurrentSale] = useState([]);
 
-  const instance = axios.create({
-    baseURL: "https://hamburgueria-kenzie-json-serve.herokuapp.com",
-    timeout: 3000,
-  });
-
   useEffect(() => {
-    instance
-      .get("/products")
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err));
+    const getProducts = async () => {
+      try {
+        const response = await instance.get("/products");
+        setProducts(response.data);
+      } catch (error) {
+        toast.error("Erro de conexão", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    };
+
+    getProducts();
   }, []);
 
   const totalPrice = new Intl.NumberFormat("pt-BR", {
