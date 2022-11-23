@@ -1,6 +1,8 @@
 import React from "react";
-import styles from "./style.module.css";
+import { CartProductStyled } from "./CartProductStyled";
 import { ButtonStyled } from "../../../styles/ButtonStyled";
+import { HeadingFour } from "../../../styles/Typography";
+import { Text } from "../../../styles/Typography";
 
 export const CartProduct = ({
   image,
@@ -10,14 +12,16 @@ export const CartProduct = ({
   id,
 }) => {
   return (
-    <li className={styles.cartProduct}>
+    <CartProductStyled>
       <figure>
         <img src={image} alt={name} />
       </figure>
       <div>
         <div>
-          <h3 className="title title-4 color-gray-100">{name}</h3>
-          <span className="text text-3 color-gray-50">{category}</span>
+          <HeadingFour>{name}</HeadingFour>
+          <Text color="gray-50" fontSize="6">
+            {category}
+          </Text>
         </div>
         <ButtonStyled
           color="gray-100"
@@ -26,6 +30,6 @@ export const CartProduct = ({
           Remover
         </ButtonStyled>
       </div>
-    </li>
+    </CartProductStyled>
   );
 };

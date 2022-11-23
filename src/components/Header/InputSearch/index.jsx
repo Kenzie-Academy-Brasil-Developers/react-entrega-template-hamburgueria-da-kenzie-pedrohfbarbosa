@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./style.module.css";
+import { FormStyled } from "./InputSearchStyled";
 import { ButtonStyled } from "../../../styles/ButtonStyled";
 import { InputStyled } from "../../../styles/InputStyled";
 
@@ -15,7 +15,7 @@ export const InputSearch = ({ handleSearch }) => {
   const handleChange = (e) => setInputSearch(e.target.value);
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleSubmit}>
       <InputStyled
         handleChange={handleChange}
         name="inputSearch"
@@ -26,6 +26,6 @@ export const InputSearch = ({ handleSearch }) => {
       <ButtonStyled height="medium" position type="submit">
         Pesquisar
       </ButtonStyled>
-    </form>
+    </FormStyled>
   );
 };

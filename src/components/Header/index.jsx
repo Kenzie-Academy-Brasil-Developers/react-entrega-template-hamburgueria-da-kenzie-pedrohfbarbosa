@@ -1,15 +1,16 @@
 import React from "react";
+import { HeaderStyled } from "./HeaderStyled";
 import { Logo } from "./Logo";
 import { InputSearch } from "./InputSearch";
-import styles from "./style.module.css";
+import { Container } from "../../styles/Container";
 
 export const Header = ({ resetToAllProducts, handleSearch }) => {
   return (
-    <header className={styles.header}>
-      <div className="container">
+    <HeaderStyled>
+      <Container>
         <Logo resetToAllProducts={resetToAllProducts} />
         <InputSearch handleSearch={handleSearch} />
-      </div>
-    </header>
+      </Container>
+    </HeaderStyled>
   );
 };

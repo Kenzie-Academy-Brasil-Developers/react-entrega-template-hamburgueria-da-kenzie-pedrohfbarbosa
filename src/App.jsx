@@ -1,5 +1,6 @@
 import React from "react";
-import { GlobalStyle } from "./styles/global";
+import { GlobalStyle } from "./styles/Global";
+import { Container } from "./styles/Container";
 import { instance } from "./services/api/api";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -102,7 +103,7 @@ export const App = () => {
         handleSearch={handleSearch}
         resetToAllProducts={resetToAllProducts}
       />
-      <div className="container">
+      <Container>
         <ProductsList
           filteredWord={filteredWord}
           products={products}
@@ -115,7 +116,7 @@ export const App = () => {
           handleRemoveFromCart={handleRemoveFromCart}
           clearCard={clearCard}
         />
-      </div>
+      </Container>
       <ToastContainer />
     </AppStyled>
   );

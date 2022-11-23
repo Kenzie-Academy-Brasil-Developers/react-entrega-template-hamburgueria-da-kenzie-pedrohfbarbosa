@@ -1,6 +1,8 @@
 import React from "react";
-import styles from "./style.module.css";
+import { ProductStyled } from "./ProductStyled";
 import { ButtonStyled } from "../../../styles/ButtonStyled";
+import { HeadingThree } from "../../../styles/Typography";
+import { Text } from "../../../styles/Typography";
 
 export const Product = ({
   image,
@@ -11,19 +13,21 @@ export const Product = ({
   product,
 }) => {
   return (
-    <li className={styles.card}>
+    <ProductStyled>
       <figure>
         <img src={image} alt={name} />
       </figure>
       <div>
-        <h3 className="title title-3 color-gray-100">{name}</h3>
-        <p className="text text-3 color-gray-50">{category}</p>
-        <span className="text-bold color-primary">
+        <HeadingThree>{name}</HeadingThree>
+        <Text fontSize="6" color="gray-50">
+          {category}
+        </Text>
+        <Text fontWeight="600" fontSize="5" color="primary">
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
           }).format(price)}
-        </span>
+        </Text>
         <ButtonStyled
           height="medium"
           handleClick={() => handleAddToCart(product)}
@@ -31,6 +35,6 @@ export const Product = ({
           Adicionar
         </ButtonStyled>
       </div>
-    </li>
+    </ProductStyled>
   );
 };

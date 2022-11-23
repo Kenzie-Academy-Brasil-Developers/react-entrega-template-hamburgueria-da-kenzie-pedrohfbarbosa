@@ -1,6 +1,8 @@
 import React from "react";
 import { Product } from "./Product";
-import styles from "./style.module.css";
+import { ProductsListStyled } from "./ProductsListStyled";
+import { HeadingTwo } from "../../styles/Typography";
+import { Text } from "../../styles/Typography";
 
 export const ProductsList = ({
   filteredWord,
@@ -9,38 +11,44 @@ export const ProductsList = ({
   handleAddToCart,
 }) => {
   return (
-    <main className={styles.main}>
+    <ProductsListStyled>
       {filteredWord && (
-        <h2 className="title title-1 color-gray-100">
+        <HeadingTwo>
           Resultados para:{" "}
-          <span className="title title-1 color-gray-50">{filteredWord}</span>
-        </h2>
+          <Text fontWeight="700" fontSize="2" color="gray-50">
+            {filteredWord}
+          </Text>
+        </HeadingTwo>
       )}
-      <ul className={styles.productsList}>
+      <ul>
         {filteredProducts
-          ? filteredProducts.map((e) => (
-              <Product
-                key={e.id}
-                product={e}
-                image={e.img}
-                name={e.name}
-                category={e.category}
-                price={e.price}
-                handleAddToCart={handleAddToCart}
-              />
-            ))
-          : products.map((e) => (
-              <Product
-                key={e.id}
-                product={e}
-                image={e.img}
-                name={e.name}
-                category={e.category}
-                price={e.price}
-                handleAddToCart={handleAddToCart}
-              />
-            ))}
+          ? filteredProducts
+              .filter((e) => e.name)
+              .map((e) => (
+                <Product
+                  key={e.id}
+                  product={e}
+                  image={e.img}
+                  name={e.name}
+                  category={e.category}
+                  price={e.price}
+                  handleAddToCart={handleAddToCart}
+                />
+              ))
+          : products
+              .filter((e) => e.name)
+              .map((e) => (
+                <Product
+                  key={e.id}
+                  product={e}
+                  image={e.img}
+                  name={e.name}
+                  category={e.category}
+                  price={e.price}
+                  handleAddToCart={handleAddToCart}
+                />
+              ))}
       </ul>
-    </main>
+    </ProductsListStyled>
   );
 };

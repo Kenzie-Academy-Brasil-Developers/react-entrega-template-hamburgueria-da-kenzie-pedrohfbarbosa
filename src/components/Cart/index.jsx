@@ -1,7 +1,9 @@
 import React from "react";
 import { CartProduct } from "./CartProduct";
 import { CartTotal } from "./CartTotal";
-import styles from "./style.module.css";
+import { CartStyled } from "./CartStyled";
+import { HeadingThree } from "../../styles/Typography";
+import { Text } from "../../styles/Typography";
 
 export const Cart = ({
   currentSale,
@@ -10,20 +12,18 @@ export const Cart = ({
   clearCard,
 }) => {
   return (
-    <aside className={styles.aside}>
-      <div className={`${styles.cartTitle} bg-color-primary`}>
-        <h3 className="title title-3 color-gray-0">Carrinho de compras</h3>
+    <CartStyled>
+      <div className="cartTitle">
+        <HeadingThree color="white">Carrinho de compras</HeadingThree>
       </div>
       {currentSale.length === 0 ? (
-        <div className={`${styles.emptyCart} bg-color-gray-0`}>
-          <h3 className="title title-3 color-gray-100">
-            Sua sacola está vazia
-          </h3>
-          <span className="text text-2 color-gray-50">Adicione itens</span>
+        <div className="emptyCart">
+          <HeadingThree>Sua sacola está vazia</HeadingThree>
+          <Text fontSize="5">Adicione itens</Text>
         </div>
       ) : (
         <div>
-          <ul className={`${styles.cartProducts} bg-color-gray-0`}>
+          <ul className="cartProducts">
             {currentSale.map((e) => (
               <CartProduct
                 key={e.id}
@@ -38,6 +38,6 @@ export const Cart = ({
           <CartTotal cartTotal={cartTotal} clearCard={clearCard} />
         </div>
       )}
-    </aside>
+    </CartStyled>
   );
 };

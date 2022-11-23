@@ -1,6 +1,13 @@
 import React from "react";
 
-export const Input = ({ handleChange, type, placeholder, name, value, className }) => {
+export const Input = ({
+  handleChange,
+  type,
+  placeholder,
+  name,
+  value,
+  className,
+}) => {
   return (
     <>
       <input
