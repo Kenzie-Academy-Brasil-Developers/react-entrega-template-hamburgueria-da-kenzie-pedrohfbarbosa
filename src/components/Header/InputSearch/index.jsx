@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./style.module.css";
+import { ButtonStyled } from "../../../styles/ButtonStyled";
+import { InputStyled } from "../../../styles/InputStyled";
 
 export const InputSearch = ({ handleSearch }) => {
   const [inputSearch, setInputSearch] = useState("");
@@ -10,22 +12,20 @@ export const InputSearch = ({ handleSearch }) => {
     setInputSearch("");
   };
 
+  const handleChange = (e) => setInputSearch(e.target.value);
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <input
-        onChange={(e) => setInputSearch(e.target.value)}
+      <InputStyled
+        handleChange={handleChange}
         name="inputSearch"
-        type="text"
         placeholder="Digitar pesquisa"
-        className="input-search"
         value={inputSearch}
       />
-      <button
-        className="btn btn-medium bg-color-primary text-bold color-gray-0"
-        type="submit"
-      >
+
+      <ButtonStyled height="medium" position type="submit">
         Pesquisar
-      </button>
+      </ButtonStyled>
     </form>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
+import { ButtonStyled } from "../../../styles/ButtonStyled";
 
 export const Product = ({
   image,
@@ -23,12 +24,12 @@ export const Product = ({
             currency: "BRL",
           }).format(price)}
         </span>
-        <button
-          className="btn btn-medium bg-color-primary text-bold color-gray-0"
-          onClick={() => handleAddToCart(product)}
+        <ButtonStyled
+          height="medium"
+          handleClick={() => handleAddToCart(product)}
         >
           Adicionar
-        </button>
+        </ButtonStyled>
       </div>
     </li>
   );

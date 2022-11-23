@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
+import { ButtonStyled } from "../../../styles/ButtonStyled";
 
 export const CartTotal = ({ cartTotal, clearCard }) => {
   return (
@@ -8,12 +9,15 @@ export const CartTotal = ({ cartTotal, clearCard }) => {
         <h4 className="text-bold color-gray-100">Total</h4>
         <span className="text-bold color-gray-50">{cartTotal}</span>
       </div>
-      <button
-        onClick={clearCard}
-        className="btn btn-default text-bold bg-color-gray-20 color-gray-50"
+      <ButtonStyled
+        handleClick={clearCard}
+        height
+        width="100%"
+        color="gray-50"
+        bg="gray-20"
       >
         Remover todos
-      </button>
+      </ButtonStyled>
     </div>
   );
 };

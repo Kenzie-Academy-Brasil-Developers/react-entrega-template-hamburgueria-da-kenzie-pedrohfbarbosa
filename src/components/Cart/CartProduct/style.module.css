@@ -48,6 +48,9 @@
 .cartProduct button {
   background-color: transparent;
   border: none;
+  height: fit-content;
+  font-size: var(--font-size-6);
+  padding: 0;
 }
 
 .cartProduct button:hover {

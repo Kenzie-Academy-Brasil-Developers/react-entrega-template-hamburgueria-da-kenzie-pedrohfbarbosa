@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
+import { ButtonStyled } from "../../../styles/ButtonStyled";
 
 export const CartProduct = ({
   image,
@@ -18,7 +19,12 @@ export const CartProduct = ({
           <h3 className="title title-4 color-gray-100">{name}</h3>
           <span className="text text-3 color-gray-50">{category}</span>
         </div>
-        <button onClick={() => handleRemoveFromCart(id)}>Remover</button>
+        <ButtonStyled
+          color="gray-100"
+          handleClick={() => handleRemoveFromCart(id)}
+        >
+          Remover
+        </ButtonStyled>
       </div>
     </li>
   );

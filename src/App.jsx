@@ -1,4 +1,5 @@
 import React from "react";
+import { GlobalStyle } from "./styles/global";
 import { instance } from "./services/api/api";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components/Header";
 import { ProductsList } from "./components/ProductsList";
 import { Cart } from "./components/Cart";
-import styles from "./styles/style.module.css";
+import { AppStyled } from "./styles/AppStyled";
 
 export const App = () => {
   const [products, setProducts] = useState([]);
@@ -95,7 +96,8 @@ export const App = () => {
   };
 
   return (
-    <div className={styles.app}>
+    <AppStyled>
+      <GlobalStyle />
       <Header
         handleSearch={handleSearch}
         resetToAllProducts={resetToAllProducts}
@@ -115,6 +117,6 @@ export const App = () => {
         />
       </div>
       <ToastContainer />
-    </div>
+    </AppStyled>
   );
 };
