@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  gap: 1rem;
+}
+
+.main h2 {
+  align-self: flex-start;
+}
+
+.productsList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, auto));
+  grid-gap: 1rem;
+}
+
+@media (max-width: 56.25rem) {
+  .main {
+    width: 100%;
+  }
+  .productsList {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+  }
+}

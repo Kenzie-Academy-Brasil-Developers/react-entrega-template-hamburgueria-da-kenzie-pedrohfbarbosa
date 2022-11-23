@@ -1,5 +1,6 @@
 import React from "react";
 import { Product } from "./Product";
+import styles from "./style.module.css";
 
 export const ProductsList = ({
   filteredWord,
@@ -8,9 +9,14 @@ export const ProductsList = ({
   handleAddToCart,
 }) => {
   return (
-    <main>
-      {filteredWord && <h2>Busca por: {filteredWord}</h2>}
-      <ul>
+    <main className={styles.main}>
+      {filteredWord && (
+        <h2 className="title title-1 color-gray-100">
+          Resultados para:{" "}
+          <span className="title title-1 color-gray-50">{filteredWord}</span>
+        </h2>
+      )}
+      <ul className={styles.productsList}>
         {filteredProducts
           ? filteredProducts.map((e) => (
               <Product

@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components/Header";
 import { ProductsList } from "./components/ProductsList";
 import { Cart } from "./components/Cart";
-import styles from "./styles/style.module.css"
+import styles from "./styles/style.module.css";
 
 export const App = () => {
   const [products, setProducts] = useState([]);
@@ -38,7 +38,7 @@ export const App = () => {
       setCurrentSale(currentSale.concat([product]));
       toast.success("Item adicionado ao carrinho com sucesso", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -49,7 +49,7 @@ export const App = () => {
     } else {
       toast.error("Item já está no carrinho", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -80,6 +80,10 @@ export const App = () => {
     setFilteredProducts(null);
   };
 
+  const clearCard = () => {
+    setCurrentSale([]);
+  };
+
   return (
     <div className={styles.app}>
       <Header
@@ -97,6 +101,7 @@ export const App = () => {
           currentSale={currentSale}
           cartTotal={totalPrice}
           handleRemoveFromCart={handleRemoveFromCart}
+          clearCard={clearCard}
         />
       </div>
       <ToastContainer />

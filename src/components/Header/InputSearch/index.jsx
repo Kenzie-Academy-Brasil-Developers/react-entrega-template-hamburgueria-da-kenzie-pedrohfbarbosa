@@ -7,6 +7,7 @@ export const InputSearch = ({ handleSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch(inputSearch);
+    setInputSearch("");
   };
 
   return (
@@ -17,6 +18,7 @@ export const InputSearch = ({ handleSearch }) => {
         type="text"
         placeholder="Digitar pesquisa"
         className="input-search"
+        value={inputSearch}
       />
       <button
         className="btn btn-medium bg-color-primary text-bold color-gray-0"
