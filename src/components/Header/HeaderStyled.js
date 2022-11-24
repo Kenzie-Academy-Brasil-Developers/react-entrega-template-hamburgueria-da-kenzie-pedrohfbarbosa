@@ -7,14 +7,14 @@ export const HeaderStyled = styled.header`
   align-items: center;
   margin-bottom: 2rem;
 
-  > div {
+  & > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   @media (max-width: 56.25rem) {
-    > div {
+    & > div {
       flex-direction: column;
       justify-content: center;
       gap: 1rem;

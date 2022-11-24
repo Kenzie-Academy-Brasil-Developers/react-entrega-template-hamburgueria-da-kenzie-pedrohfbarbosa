@@ -4,7 +4,7 @@ export const CartStyled = styled.aside`
   width: 100%;
   max-width: 22.6875rem;
 
-  .cartTitle {
+  & .cartTitle {
     height: 4.0625rem;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@ export const CartStyled = styled.aside`
     justify-content: center;
   }
 
-  .emptyCart {
+  & .emptyCart {
     height: 9.875rem;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ export const CartStyled = styled.aside`
     background-color: var(--color-gray-0);
   }
 
-  .cartProducts {
+  & .cartProducts {
     display: flex;
     flex-direction: column;
     gap: 1rem;

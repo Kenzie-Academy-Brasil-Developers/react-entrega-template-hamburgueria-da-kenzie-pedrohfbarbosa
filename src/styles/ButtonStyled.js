@@ -29,14 +29,14 @@ export const ButtonStyled = styled(Button)`
       right: 0.5rem;
     `};
 
-  :hover {
+  &:hover {
     opacity: 0.7;
   }
 
   ${(props) =>
     props.hover &&
     css`
-      :hover {
+      &:hover {
         background-color: ${(props) =>
           props.bgHover
             ? `var(--color-${props.bgHover})`

@@ -8,7 +8,7 @@ export const CartTotalStyled = styled.div`
   justify-content: space-between;
   background-color: var(--color-gray-0);
 
-  > div {
+  & > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
