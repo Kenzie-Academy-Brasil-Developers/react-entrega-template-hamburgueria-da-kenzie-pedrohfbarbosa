@@ -11,11 +11,11 @@ export const ProductStyled = styled.li`
   justify-content: space-between;
   flex-shrink: 0;
 
-  :hover {
+  &:hover {
     border-color: var(--color-gray-100);
   }
 
-  figure {
+  & figure {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -25,11 +25,11 @@ export const ProductStyled = styled.li`
     object-fit: cover;
   }
 
-  figure img {
+  & figure img {
     object-fit: cover;
   }
 
-  div {
+  & div {
     width: 100%;
     height: 56%;
     display: flex;

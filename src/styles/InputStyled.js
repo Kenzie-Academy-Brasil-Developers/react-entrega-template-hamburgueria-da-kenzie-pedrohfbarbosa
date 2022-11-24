@@ -11,16 +11,16 @@ export const InputStyled = styled(Input)`
   font-size: var(--font-size-4);
   width: 100%;
 
-  ::placeholder {
+  &::placeholder {
     color: var(--color-gray-20);
     font-size: var(--font-size-4);
   }
 
-  :focus {
+  &:focus {
     border-color: var(--color-gray-100);
   }
 
-  :focus::placeholder {
+  &:focus::placeholder {
     color: var(--color-gray-50);
   }
 `;
