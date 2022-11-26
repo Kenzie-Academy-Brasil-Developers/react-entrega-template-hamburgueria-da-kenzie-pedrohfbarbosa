@@ -33,4 +33,8 @@ export const CartStyled = styled.aside`
     padding: 1.25rem 0.625rem;
     background-color: var(--color-gray-0);
   }
+
+  @media (max-width: 56.25rem) {
+    max-width: 40.625rem;
+  }
 `;
