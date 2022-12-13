@@ -46,7 +46,7 @@ export const CartProductStyled = styled.li`
     gap: 0.5rem;
   }
 
-  & button {
+  & .btns-wrapper > button {
     background-color: transparent;
     border: none;
     height: fit-content;
@@ -54,7 +54,32 @@ export const CartProductStyled = styled.li`
     padding: 0;
   }
 
-  & button:hover {
+  & .btns-wrapper > button:hover {
     text-decoration: underline;
+  }
+
+  & .btns-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .btns-wrapper > div {
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-1);
+    gap: 0.5rem;
+  }
+
+  & .btns-wrapper > div > button {
+    background-color: transparent;
+    border: none;
+    height: fit-content;
+    font-size: var(--font-size-6);
+    padding: 0.5rem;
+  }
+
+  & .btns-wrapper > div > button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `;

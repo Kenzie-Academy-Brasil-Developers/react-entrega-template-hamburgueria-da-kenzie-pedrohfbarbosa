@@ -20,7 +20,7 @@ export const ProductsListStyled = styled.main`
 
   @media (max-width: 56.25rem) {
     width: 100%;
-
+    max-width: 40.625rem;
     & > ul {
       display: flex;
       align-items: center;

@@ -10,6 +10,8 @@ export const Cart = ({
   cartTotal,
   handleRemoveFromCart,
   clearCard,
+  handleRemoveOneItem,
+  handleAddOneItem,
 }) => {
   return (
     <CartStyled>
@@ -27,10 +29,9 @@ export const Cart = ({
             {currentSale.map((e) => (
               <CartProduct
                 key={e.id}
-                image={e.img}
-                name={e.name}
-                category={e.category}
-                id={e.id}
+                product={e}
+                handleAddOneItem={handleAddOneItem}
+                handleRemoveOneItem={handleRemoveOneItem}
                 handleRemoveFromCart={handleRemoveFromCart}
               />
             ))}

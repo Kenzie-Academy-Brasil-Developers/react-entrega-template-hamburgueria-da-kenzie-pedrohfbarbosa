@@ -5,30 +5,48 @@ import { HeadingFour } from "../../../styles/Typography";
 import { Text } from "../../../styles/Typography";
 
 export const CartProduct = ({
-  image,
-  name,
-  category,
   handleRemoveFromCart,
-  id,
+  product,
+  handleAddOneItem,
+  handleRemoveOneItem,
 }) => {
   return (
     <CartProductStyled>
       <figure>
-        <img src={image} alt={name} />
+        <img src={product.img} alt={product.name} />
       </figure>
       <div>
         <div>
-          <HeadingFour>{name}</HeadingFour>
+          <HeadingFour>{product.name}</HeadingFour>
           <Text color="gray-50" fontSize="6">
-            {category}
+            {product.category}
           </Text>
         </div>
-        <ButtonStyled
-          color="gray-100"
-          handleClick={() => handleRemoveFromCart(id)}
-        >
-          Remover
-        </ButtonStyled>
+        <div className="btns-wrapper">
+          <ButtonStyled
+            color="gray-100"
+            handleClick={() => handleRemoveFromCart(product.id)}
+          >
+            Remover
+          </ButtonStyled>
+          <div>
+            <ButtonStyled
+              handleClick={() => handleRemoveOneItem(product.id)}
+              color="gray-100"
+            >
+              -
+            </ButtonStyled>
+            <Text color="gray-50" fontSize="6">
+              {product.quantity}
+            </Text>
+            <ButtonStyled
+              handleClick={() => handleAddOneItem(product.id)}
+              color="gray-100"
+            >
+              +
+            </ButtonStyled>
+          </div>
+        </div>
       </div>
     </CartProductStyled>
   );
